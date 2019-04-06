@@ -1,0 +1,23 @@
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "allOf": [
+        {
+          "field": "Microsoft.Network/virtualNetworks/subnets/networkSecurityGroup.id",
+          "exists": "False"
+        }
+      ]
+    },
+    "then": {
+      "effect": "append",
+      "details": [
+        {
+          "field": "Microsoft.Network/virtualNetworks/subnets/networkSecurityGroup.id",
+          "value": "/subscriptions/d1c42fbc-ff3c-4c3a-b7f3-67d6e92ac6cb/resourceGroups/NSG/providers/Microsoft.Network/networkSecurityGroups/NSG"
+        }
+      ]
+    }
+  },
+  "parameters": {}
+}
